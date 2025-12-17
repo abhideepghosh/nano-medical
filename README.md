@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HealthSpeak - Medical Translation Assistant
+
+**Author**: Abhideep Ghosh
+
+HealthSpeak is a real-time, privacy-focused medical translation application designed to bridge communication gaps between healthcare providers and patients. It acts as a strict, accurate translator without conversational fillers, ensuring clear and precise medical communication.
+
+## Features
+
+- **Real-time Speech-to-Speech Translation**: speak in one language and hear the translation in another instantly.
+- **Strict Medical Mode**: The AI is prompted to act solely as a translator, preserving medical terminology and avoiding non-essential dialogue.
+- **Privacy-First**: No recordings or transcripts are permanently stored. All data is transient and cleared upon session end.
+- **Multi-Model Fallback**: Utilizes a robust backend that cycles through multiple high-quality AI models (Llama 3, Mistral, Gemini) to ensure reliability.
+- **Visual Feedback**: Real-time transcript display and error handling for a smooth user experience.
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **AI Integration**: [OpenRouter API](https://openrouter.ai/) (accessing Llama 3, Mistral, etc.)
+- **Speech Services**: Native Web Speech API (`SpeechRecognition` & `speechSynthesis`)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or higher)
+- npm, yarn, or pnpm
+- An OpenRouter API Key
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd nano-medical
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+3. **Configure Environment Variables:**
+   Create a `.env.local` file in the root directory:
+   ```bash
+   OPENROUTER_API_KEY=your_api_key_here
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Open the App:**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage Guide
 
-## Deploy on Vercel
+1. **Select Languages**: Choose your speaking language (Input) and the patient's language (Output) from the dropdowns.
+2. **Start Listening**: Click the microphone button to start recording.
+3. **Speak**: Dictate your medical query or instructions clearly.
+4. **Auto-Translate**: Stop speaking or click the stop button. The app will automatically transcribe and translate your speech.
+5. **Playback**: Review the text on screen or click the "Play" icon to hear the translation spoken aloud.
+6. **Reset**: Use the "Reset" button in the header to clear all text and start a fresh session.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/`: Next.js App Router pages and API routes.
+  - `api/translate/`: Backend route handling AI translation requests.
+- `components/`: Reusable UI components (Header, Controls, etc.).
+- `hooks/`: Custom React hooks for speech recognition and synthesis.
+- `Workflow.md`: Detailed documentation of the application's internal workflow.
+
+## License
+
+This project is for educational and prototype purposes.
