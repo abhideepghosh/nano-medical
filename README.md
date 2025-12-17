@@ -56,6 +56,8 @@ HealthSpeak is a real-time, privacy-focused medical translation application desi
 
 5. **Open the App:**
    Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+   Live Link: [https://nano-medical.vercel.app/](https://nano-medical.vercel.app/)
+
 
 ## Usage Guide
 
